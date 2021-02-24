@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'myapp',
     'django.contrib.sites',
     'sitemanage',
-    'django_cleanup',
 
 ]
 
