@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>{{ request.site.siteconfig.meta_title }}</title>
+    <title>Dlog</title>
     <!-- MDB icon -->
     <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
@@ -24,7 +24,7 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark blue">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="/">{{ request.site.siteconfig.meta_title }}</a>
+        <a class="navbar-brand" href="/">Dlog</a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -40,9 +40,6 @@
                     <a class="nav-link" href="{% url 'myapp:index' %}">Home
                         <span class="sr-only">(current)</span>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
                 </li>
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
@@ -78,7 +75,8 @@
                         aria-haspopup="true" aria-expanded="false">Category</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                         {% for item in category_list %}
-                        <a class="dropdown-item" href="{% url 'myapp:category_detail' item.name_en %}">{{ item.name }}</a>
+                        <a class="dropdown-item" href="{% url 'myapp:category_detail' item.name_en %}">{{ item.name
+                            }}</a>
                         {% endfor %}
                         <hr>
                         <a class="dropdown-item" href="{% url 'myapp:category_list'  %}">カテゴリ一覧</a>
