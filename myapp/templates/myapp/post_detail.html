@@ -22,6 +22,7 @@
                 <p class="card-text">{{ object.content | safe | linebreaksbr | urlize }}</p>
                 <!-- Button -->
                 <a href="{% url 'myapp:like_add' object.pk %}" class="btn peach-gradient">お気に入り</a>
+                <small>{% if object.like_count %}{{ object.like_count }}人がいいねしています{% endif %}</small>
                 <hr>
                 <a href="javascript:void(0);" onclick="window.history.back();" class="btn btn-outline-dark">戻る</a>
                 {% if object.author == request.user %}
@@ -30,7 +31,9 @@
                 {% endif %}
 
             </div>
-
+            <div class="card-footer text-muted text-center mt-4">
+                <small>by&nbsp;{{ object.author }}&nbsp;at {{ object.created_at.date }}</small>
+            </div>
         </div>
         <!-- Card -->
     </div>

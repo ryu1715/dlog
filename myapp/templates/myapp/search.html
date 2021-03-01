@@ -9,24 +9,24 @@
         <br>
         <table class="table">
             <thead>
-                <th>タイトル</th>
+                <th width="200px">タイトル</th>
                 <th>内容</th>
-                <th>作成日</th>
-                <th>更新日</th>
+                <th>作成日<br>更新日時</th>
             </thead>
 
             <tbody>
                 {% for item in search_list %}
                 <tr>
                     <td><a href="{% url 'myapp:post_detail' item.pk %}">{{ item.title }}</a></td>
-                    <td>{{ item.content }}</td>
-                    <td>{{ item.created_at }}</td>
-                    <td>{{ item.updated_at }}</td>
+                    <td>{{ item.content| safe | truncatechars_html:30 }}</td>
+                    <td>{{ item.created_at.date }}<br>{{ item.updated_at.date }}</td>
                 </tr>
                 {% endfor %}
 
             </tbody>
         </table>
+        <br>
+        {% include 'myapp/pagination.html' %}
         <br>
     </div>
 </div>
