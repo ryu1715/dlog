@@ -13,7 +13,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 
 
-class OnlyMyPostMixin(UserPassesTestMixin):
+class OnlyMyPostMixin(UserPassesTestMixin): #自分のPOSTのみ更新・削除できるようにする
     raise_exception = True
 
     def test_func(self):

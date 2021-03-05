@@ -9,7 +9,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'content', 'category', 'thumbnail',)
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):  # bootstrapを使用可能に
         super().__init__(*args, **kwargs)
         for fields in self.fields.values():
             fields.widget.attrs['class'] = 'form-control'
@@ -32,8 +32,10 @@ class SignUpForm(UserCreationForm):
         for fields in self.fields.values():
             fields.widget.attrs['class'] = 'form-control'
 
+
 class SearchForm(forms.Form):
-    freeword = forms.CharField(min_length=1, max_length=30, label='', required=False)
+    freeword = forms.CharField(
+        min_length=1, max_length=30, label='', required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
